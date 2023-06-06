@@ -1,7 +1,6 @@
 import ReactDom from "react-dom/client";
-
-import RouterConfig from "./routes";
+import App from "./App";
 
 const root = ReactDom.createRoot(document.getElementById("root"));
 
-root.render(<RouterConfig/>);
+root.render(<App />);
