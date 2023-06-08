@@ -12,6 +12,7 @@ import BaseLayouts from "../layouts/BaseLayouts";
 
 const RouterConfig = (props) => {
   return (
+    // <BrowserRouter basename="/react">
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<BaseLayouts />}>
