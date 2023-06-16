@@ -37,22 +37,28 @@ const AppBreadcrumb = (props) => {
         if (item.path.startsWith(":")) {
           item.path = params[item.path.substr(1)];
         }
-        
+
         breadcrumbNameMap[`${parentPath}/${item.path}`.substring(1)] =
           item.title || "首页";
+
         if (item.children) {
-          
           routesToBread(
             item.children,
             item.path ? `${parentPath}/${item.path}` : parentPath
-            //
+            //parentPath是空的，item.children里面parentPath（初始值）=/admin，因为item.path=admin,parentPath=""
+            // /admin/dashboard
+            // /admin/notices
+            // /admin/product-list
+            // /admin/product-edit
+            // product-edit的children里面parentPath=/admin/product-edit
+            // /admin/product-edit/id
           );
-          
         }
       }
     });
   }
   routesToBread(routesData);
+  console.log(breadcrumbNameMap);
 
   const location = useLocation();
   const pathSnippets = location.pathname.split("/").filter((i) => i);
@@ -65,6 +71,7 @@ const AppBreadcrumb = (props) => {
     };
   });
 
+  // console.log(breadcrumbItems);
   return <Breadcrumb items={breadcrumbItems} />;
 };
 export default AppBreadcrumb;
