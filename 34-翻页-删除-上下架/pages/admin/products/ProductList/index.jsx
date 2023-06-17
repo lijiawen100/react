@@ -13,7 +13,7 @@ const ProductList = (props) => {
   const navigate = useNavigate();
   const [dataSource, setDataSource] = useState();
 
-  const [pageSize] = useState(3); //一页多少条
+  const [pageSize, setPageSize] = useState(3); //一页多少条
 
   const [total, setTotal] = useState(0); //总条数
 
@@ -93,7 +93,7 @@ const ProductList = (props) => {
 
   const loadData = useCallback(async (page, pageSize) => {
     const res = await findProductList(page, pageSize);
-    // console.log(1, res);
+    console.log(1, res);
     setTotal(res.totalCount);
     setDataSource(res.products);
   }, []);

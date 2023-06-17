@@ -14,13 +14,3 @@ export function modifyProductOne(id, data) {
 export function delProductOne(id) {
   return request.delete("/api/v1/admin/products/" + id);
 }
-
-// 新增一条商品
-export function addProduct(data) {
-  return request.post("/api/v1/admin/products", { data });
-}
-
-// 获取商品详情
-export function findProductDetail(id) {
-  return request.get("/api/v1/admin/products/" + id);
-}
