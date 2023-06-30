@@ -1,11 +1,7 @@
-import { useSelector, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 import B from "./B";
 import { asyncAdd } from "./stores/actions/list";
-
-//UI
-const App = () => {
-  const list = useSelector((state) => state.list);
-  const dispatch = useDispatch();
+const App = ({ dispatch, list }) => {
   return (
     <>
       <h3>APP</h3>
@@ -29,4 +25,6 @@ const App = () => {
     </>
   );
 };
-export default App;
+export default connect((state) => ({
+  list: state.list,
+}))(App);
